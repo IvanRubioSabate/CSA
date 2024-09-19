@@ -39,4 +39,5 @@ public class Vista {
         frame.setContentPane(cards);
         frame.setVisible(true);
     }
+
 }
