@@ -20,7 +20,7 @@ public class ConectionDB {
         }
     }
     
-    public  void closeConexio(java.sql.Connection conn){
+    public static void closeConexio(java.sql.Connection conn){
         try {
             conn.close();
             System.out.println("Conexió tancada");
