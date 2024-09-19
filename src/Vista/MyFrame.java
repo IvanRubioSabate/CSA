@@ -1,15 +1,17 @@
 package Vista;
 
-import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.*;
 
 public class MyFrame extends JFrame {
 
     public MyFrame() {
-        setTitle("hola");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(0, 0, 800, 800);
-        setVisible(true);
-        setResizable(true);
+        // Crear el marco principal
+        JFrame frame = new JFrame();
+        setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+        frame.setBounds(0, 0, 400, 500);
     }
+
+
     
 }
