@@ -2,35 +2,42 @@ package Vista;
 
 import javax.swing.*;
 import java.awt.*;
-
-
-import Modelo.ConectionDB;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Vista {
 
     private static MyFrame frame = new MyFrame();
+    private static JPanel cards;
+    private static CardLayout cl;
     public static void main(String[] args) throws Exception {
-        ConectionDB conec = new ConectionDB();
         
-        Connection conn = conec.getConexio();
+        cl = new CardLayout();
+
+        cards = new JPanel();
+        cards.setLayout(cl);
         
-        try {
-            Statement sentencia = conn.createStatement();
-            
-            sentencia.execute("INSERT INTO usuarios (usuario_usuario, usuario_contrasena, usuario_rol, usuario_nombre, usuario_sexo, usuario_edad, usuario_direcion) VALUES ('Guilherme', 'patata', 'ADMIN','Guilherme' ,'hombre', '19', 'Vidreres')");
-            
-            ResultSet rs = sentencia.executeQuery("SELECT * FROM usuarios");
-            
-            while (rs.next()) {
-                System.out.println(rs.getString("usuario_usuario") + " " + rs.getString("usuario_rol"));
+
+        JPanel panel1 = new JPanel();
+        JButton text1 = new JButton("Hola");
+        text1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                cl.show(cards, "Panel2");
             }
-            
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
+        });
+        panel1.add(text1);
+
+        JPanel panel2 = new JPanel();
+        JButton text2 = new JButton("Adios");
+        panel2.add(text2);
+
+        cards.add(panel1, "Panel1");
+        cards.add(panel2, "Panel2");
+
+        cl.show(cards, "Panel1");
+
+        frame.setContentPane(cards);
+        frame.setVisible(true);
     }
+
 }

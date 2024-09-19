@@ -7,7 +7,7 @@ public class ConectionDB {
     
     private final String url = "jdbc:mysql://localhost:3306/csabd";
     private final String usuari = "root";
-    private final String password = "patata";
+    private final String password = "admin123";
     
     public ConectionDB(){
     }
