@@ -1,5 +1,9 @@
 package Vista;
 
+import javax.swing.*;
+import java.awt.*;
+
+
 import Modelo.ConectionDB;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -7,6 +11,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Vista {
+
+    private static MyFrame frame = new MyFrame();
     public static void main(String[] args) throws Exception {
         ConectionDB conec = new ConectionDB();
         
