@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import Controlador.Controlador;
+
 public class Vista {
 
     private static MyFrame frame = new MyFrame();
@@ -22,7 +24,7 @@ public class Vista {
         JButton text1 = new JButton("Hola");
         text1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                cl.show(cards, "Panel2");
+                Controlador.logIn("admin", "admin");
             }
         });
         panel1.add(text1);
@@ -31,13 +33,31 @@ public class Vista {
         JButton text2 = new JButton("Adios");
         panel2.add(text2);
 
+        JPanel adminPage = CreateAdminPage();
+
         cards.add(panel1, "Panel1");
         cards.add(panel2, "Panel2");
+        cards.add(adminPage, "adminPage");
 
-        cl.show(cards, "Panel1");
+        cl.show(cards, "panel1");
 
         frame.setContentPane(cards);
         frame.setVisible(true);
+    }
+
+    //Create the admin panel 
+    private static JPanel CreateAdminPage() {
+        JPanel panel = new JPanel();
+
+        JTextField text = new JTextField("admin page");
+
+        panel.add(text);
+
+        return panel;
+    }
+
+    public static void showAdminPage() {
+        cl.show(cards, "adminPage");
     }
 
 }
