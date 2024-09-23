@@ -27,8 +27,10 @@ public class Modelo {
             return false;
         }
         
+        
         ConectionDB.closeConexio(conn);
         return true;
         
     }
+    
 }
