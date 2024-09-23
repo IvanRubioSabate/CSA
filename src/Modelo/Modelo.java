@@ -6,7 +6,6 @@ import java.sql.Statement;
 
 public class Modelo {
 
-    private static User activeUser;
     public static void main(String[] args) {
         System.out.println(createUser("Ivan", "patata", "ADMIN", "Ivan", "hombre", 19, "Vidreres"));
     }

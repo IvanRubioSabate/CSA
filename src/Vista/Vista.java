@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 import Controlador.Controlador;
 
 public class Vista {
@@ -24,10 +25,10 @@ public class Vista {
 
         //Visual del login (first page)
 
-
+        panelPrincipal.setBackground(Color.gray);
         JButton botonEntrar = new JButton("Entrar");
-
-// Algunos labels, campos y botones
+        botonEntrar.setBorder(BorderFactory.createLineBorder(Color.GRAY,4));
+        // Algunos labels, campos y botones
         JLabel usernameLabel = new JLabel("Usuario");
         JTextField usernameInputField = new JTextField(8);
         JLabel passwordLabel = new JLabel("Contraseña");
@@ -39,7 +40,7 @@ public class Vista {
         panelPrincipal.add(passwordInputField);
         panelPrincipal.add(botonEntrar);
 
-// Añade un ActionListener al botón de entrar
+        // Añade un ActionListener al botón de entrar
         botonEntrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Obtener los valores ingresados por el usuario
@@ -50,9 +51,6 @@ public class Vista {
                 Controlador.logIn(username, password);
             }
         });
-
-
-
 
 
         //Creacion de paneles
@@ -70,6 +68,8 @@ public class Vista {
         frame.setContentPane(cards);
         frame.setVisible(true);
     }
+
+
 
     //Create the admin panel 
     private static JPanel CreateAdminPage() {
