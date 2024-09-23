@@ -11,5 +11,11 @@ public class Controlador {
         if (username.equals("admin")) {
             Vista.showAdminPage();
         }
+        if (username.equals("Marcos")) {
+            Vista.showMecPage();
+        }
+        if (username.equals("Pedro")) {
+            Vista.showAstroPage();
+        }
     }
 }
