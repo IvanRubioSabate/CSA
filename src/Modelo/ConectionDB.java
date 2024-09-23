@@ -7,7 +7,7 @@ public class ConectionDB {
     
     private final String url = "jdbc:mysql://localhost:3306/csabd";
     private final String usuari = "root";
-    private final String password = "admin123";
+    private final String password = "patata";
     
     public ConectionDB(){
     }
@@ -23,7 +23,6 @@ public class ConectionDB {
     public static void closeConexio(java.sql.Connection conn){
         try {
             conn.close();
-            System.out.println("Conexió tancada");
         }catch (SQLException e) {
             throw new RuntimeException(e);
         }

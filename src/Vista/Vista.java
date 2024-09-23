@@ -48,7 +48,7 @@ public class Vista {
                 String password = new String(passwordInputField.getPassword()); // Obtener la contraseña (como String)
 
                 // Llamar al método logIn del controlador con los valores obtenidos
-                Controlador.logIn(username, password);
+                Controlador.logIn(usernameInputField.getText(), password);
             }
         });
 
