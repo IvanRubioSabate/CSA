@@ -21,6 +21,9 @@ public class Vista {
         
 
         JPanel panel1 = new JPanel();
+        JPanel panel2 = loginP();
+
+
         JButton text1 = new JButton("Hola");
         text1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -29,9 +32,8 @@ public class Vista {
         });
         panel1.add(text1);
 
-        JPanel panel2 = new JPanel();
-        JButton text2 = new JButton("Adios");
-        panel2.add(text2);
+
+
 
         JPanel adminPage = CreateAdminPage();
 
@@ -58,6 +60,24 @@ public class Vista {
 
     public static void showAdminPage() {
         cl.show(cards, "adminPage");
+    }
+
+
+     public static JPanel loginP() {
+         JPanel panel = new JPanel();
+         panel.setBackground(Color.blue);
+
+         // Textos
+         JLabel titulo;
+         JLabel interprete;
+         JLabel duracion;
+         JButton añadir;
+         JButton cancelar;
+
+
+         // Crear el botón
+         JButton boton = new JButton("Cambiar Color");
+         return panel;
     }
 
 }
