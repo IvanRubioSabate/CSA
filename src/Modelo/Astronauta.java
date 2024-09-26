@@ -74,4 +74,14 @@ public class Astronauta extends Usuario {
         Dades.put("rangoMilitar", this.rangoMilitar);
         return Dades;
     }
+    
+    public static String encriptarMisatge(String misatge) {
+        StringBuilder encriptado = new StringBuilder();
+        for (int i = 0; i < misatge.length(); i++) {
+            if (misatge.charAt(i) != 'a' && misatge.charAt(i) != 'e' && misatge.charAt(i) != 'i' && misatge.charAt(i) != 'o' && misatge.charAt(i) != 'u') {
+                encriptado.append(misatge.charAt(i));
+            }
+        }
+        return encriptado.toString();
+    }
 }
