@@ -24,7 +24,7 @@ public class Usuario {
         this.direccion = direccion;
     }
     
-    public static Usuario newUsuario(String user) {
+    public static Usuario getUsuario(String user) {
         
         ConectionDB conec = new ConectionDB();
         Connection conn = conec.getConexio();
