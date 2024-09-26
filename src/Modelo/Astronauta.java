@@ -1,7 +1,7 @@
 package Modelo;
 
 
-import java.sql.Date;
+import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,6 +19,27 @@ public class Astronauta extends Usuario {
         this.misionesOK = misionesOK;
         this.misionesKO = misionesKO;
         this.rangoMilitar = rangoMilitar;
+    }
+
+    public static Astronauta getAstronauta(Usuario usuario) {
+        ConectionDB conec = new ConectionDB();
+        Connection conn = conec.getConexio();
+
+        try {
+            Statement sentencia = conn.createStatement();
+            ResultSet rs = sentencia.executeQuery("select * from astronauta where astronauta_id = '" + usuario.getNombre() + "';");
+            if (rs.next()) {
+                return new Astronauta (usuario.getUsuario(), usuario.getRol(), usuario.getNombre(), usuario.getSexo(), usuario.getEdad(), usuario.getDireccion(), rs.getDate("astronauta_data_1r_vuelo"), rs.getInt("astronauta_misiones_ok"), rs.getInt("astronauta_misiones_ko"), rs.getString("astronauta_rango_militar"));
+            } else {
+                return null;
+            }
+
+
+        } catch (SQLException e) {
+            System.out.println("error " + e.getMessage());
+            ConectionDB.closeConexio(conn);
+            return null;
+        }
     }
     
     public String RandomLocation() {

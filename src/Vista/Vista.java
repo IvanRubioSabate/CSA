@@ -84,7 +84,7 @@ public class Vista {
                 cl.show(cards, "mecPage");
                 break;
             case "ASTRO":
-                JPanel astroPage = CreateAstroPage();
+                JPanel astroPage = AstroVista.CreateAstroPage(user);
                 cards.add(astroPage, "astroPage");
                 cl.show(cards, "astroPage");
                 break;
@@ -107,15 +107,7 @@ public class Vista {
         return panel;
     }
 
-    private static JPanel CreateAstroPage() {
-        JPanel panel = new JPanel();
 
-        JTextField text = new JTextField("Astro page");
-
-        panel.add(text);
-
-        return panel;
-    }
 
     public static void showAdminPage() {
         cl.show(cards, "adminPage");
