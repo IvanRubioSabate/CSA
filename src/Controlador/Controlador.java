@@ -1,5 +1,6 @@
 package Controlador;
 
+import Vista.MecVista;
 import Modelo.Usuario;
 import Vista.Vista;
 
@@ -16,9 +17,15 @@ public class Controlador {
                 Controlador.user = usuario;
                 System.out.println("Usuario correcto");
                 switch (usuario.getRol()) {
-                    case "ADMIN" -> Vista.showAdminPage();
-                    case "MECA" -> Vista.showMecPage();
-                    case "ASTRO" -> Vista.showAstroPage();
+                    case "ADMIN":
+                        Vista.showAdminPage();
+                        break;
+                    case "MECA":
+                        Vista.generatePanels(usuario);
+                        break;
+                    case "ASTRO":
+                        Vista.showAstroPage();
+                        break;
                 }
         }
         }catch (Exception e) {

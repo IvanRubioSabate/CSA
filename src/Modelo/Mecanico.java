@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 public class Mecanico extends Usuario {
     private int salario;
@@ -20,6 +22,27 @@ public class Mecanico extends Usuario {
         this.anosExp = anosExp;
         this.CiudadTrabajo = ciudadTrabajo;
         this.Fitxat = false;
+    }
+    
+    public static Mecanico getMecanico(Usuario usuario) {
+        ConectionDB conec = new ConectionDB();
+        Connection conn = conec.getConexio();
+        
+        try {
+            Statement sentencia = conn.createStatement();
+            ResultSet rs = sentencia.executeQuery("select * from mecanico where mecanico_id = '" + usuario.getNombre() + "';");
+            if (rs.next()) {
+                return new Mecanico (usuario.getUsuario(), usuario.getRol(), usuario.getNombre(), usuario.getSexo(), usuario.getEdad(), usuario.getDireccion(), rs.getInt("mecanico_salario"), rs.getInt("mecanico_id_taller"), rs.getInt("mecanico_anos_exp"), rs.getString("mecanico_ciduad_trabajo"));
+            } else {
+                return null;
+            }
+            
+            
+        } catch (SQLException e) {
+            System.out.println("error " + e.getMessage());
+            ConectionDB.closeConexio(conn);
+            return null;
+        }
     }
     
     public boolean Fitxar() {
@@ -57,5 +80,21 @@ public class Mecanico extends Usuario {
         }
         
         return vehiculos;
+    }
+    
+    public Map<String, String> getFitxa(){
+        Map<String, String> Dades = new HashMap<>();
+        Dades.put("usuario", this.usuario);
+        Dades.put("rol", this.rol);
+        Dades.put("nombre", this.nombre);
+        Dades.put("sexo", this.sexo);
+        Dades.put("edad", String.valueOf(this.edad));
+        Dades.put("direccion", this.direccion);
+        Dades.put("salario", String.valueOf(this.salario));
+        Dades.put("IDTaller", String.valueOf(this.IDTaller));
+        Dades.put("anosExp", String.valueOf(this.anosExp));
+        Dades.put("CiudadTrabajo", this.CiudadTrabajo);
+        
+        return Dades;
     }
 }

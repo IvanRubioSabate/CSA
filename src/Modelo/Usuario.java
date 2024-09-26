@@ -7,12 +7,12 @@ import java.sql.Statement;
 import java.util.HashSet;
 
 public class Usuario {
-    private String usuario;
-    private String rol;
-    private String nombre;
-    private String sexo;
-    private int edad;
-    private String direccion;
+    protected String usuario;
+    protected String rol;
+    protected String nombre;
+    protected String sexo;
+    protected int edad;
+    protected String direccion;
     
     
     public Usuario(String usuario, String rol, String nombre, String sexo, int edad, String direccion) {
@@ -71,5 +71,25 @@ public class Usuario {
     
     public String getRol() {
         return rol;
+    }
+    
+    public String getUsuario() {
+        return usuario;
+    }
+    
+    public String getNombre() {
+        return nombre;
+    }
+    
+    public String getSexo() {
+        return sexo;
+    }
+    
+    public int getEdad() {
+        return edad;
+    }
+    
+    public String getDireccion() {
+        return direccion;
     }
 }
