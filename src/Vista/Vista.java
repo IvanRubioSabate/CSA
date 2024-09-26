@@ -17,7 +17,6 @@ public class Vista {
     public static void main(String[] args) throws Exception {
         
         cl = new CardLayout();
-
         cards = new JPanel();
         cards.setLayout(cl);
         
@@ -51,7 +50,7 @@ public class Vista {
 
 
 
-        
+
 
         // Añade un ActionListener al botón de entrar
         botonEntrar.addActionListener(new ActionListener() {
@@ -64,13 +63,13 @@ public class Vista {
                 Controlador.logIn(usernameInputField.getText(), password);
             }
         });
-        
+
         cards.add(panelPrincipal, "Panel1");
         cl.show(cards, "panel1");
         frame.setContentPane(cards);
         frame.setVisible(true);
     }
-    
+
     //Creacion de paneles
     public static void generatePanels(Usuario user) {
         switch (user.getRol()) {
@@ -90,7 +89,7 @@ public class Vista {
                 cl.show(cards, "astroPage");
                 break;
         }
-        
+
         frame.setContentPane(cards);
         frame.setVisible(true);
     }
@@ -107,7 +106,7 @@ public class Vista {
 
         return panel;
     }
-    
+
     private static JPanel CreateAstroPage() {
         JPanel panel = new JPanel();
 

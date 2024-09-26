@@ -65,10 +65,10 @@ public class Mecanico extends Usuario {
         try{
             Statement sentencia = conn.createStatement();
             
-            ResultSet rs = sentencia.executeQuery("SELECT * FROM vehiuclos WHERE vehiculo_id_taller =" + this.IDTaller);
+            ResultSet rs = sentencia.executeQuery("SELECT * FROM vehiculos WHERE vehiculo_taller_id =" + this.IDTaller);
             
             while (rs.next()) {
-                vehiculos.add(new Vehiculo(rs.getString("vehiculo_matricula"), rs.getString("vehiculo_model"), rs.getString("vehiculo_color"), rs.getString("vehiculo_tipo"), rs.getInt("vehiculo_id_taller")));
+                vehiculos.add(new Vehiculo(rs.getString("vehiculo_matricula"), rs.getString("vehiculo_model"), rs.getString("vehiculo_color"), rs.getString("vehiculo_tipo"), rs.getInt("vehiculo_taller_id")));
             }
             
         }catch (SQLException e) {
