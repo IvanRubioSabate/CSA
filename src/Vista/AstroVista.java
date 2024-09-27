@@ -106,6 +106,26 @@ public class AstroVista {
             }
         });
 
+        JLabel mssgEncText = new JLabel("Escribe el mensaje que quieres encriptar");
+        panelAstro.add(mssgEncText);
+        mssgEncText.setBounds(50,260,450,20);
+
+        JTextField mssgEntrada = new JTextField();
+        panelAstro.add(mssgEntrada);
+        mssgEntrada.setBounds(70,290,250,20);
+
+        JButton encripMss = new JButton("Encripta el mensaje");
+        panelAstro.add(encripMss);
+        encripMss.setBounds(100,320,200,20);
+
+
+        encripMss.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JLabel mssgEncript = new JLabel(Astronauta.encriptarMisatge(mssgEntrada.getText()));
+                panelAstro.add(mssgEncript);
+                mssgEncript.setBounds(70,350,250,20);
+            }
+        });
 
 
 
