@@ -60,6 +60,54 @@ public class AstroVista {
         panelAstro.add(direccionUser);
         panelAstro.add(direccionUserRes);
 
+        JLabel astro1rV = new JLabel("Fecha primer vuelo: ");
+        JLabel astro1rVres = new JLabel(Dades.get("fechaPrimerVuelo"));
+        astro1rV.setBounds(10,80,300,20);
+        astro1rVres.setBounds(130,80,140,20);
+        panelAstro.add(astro1rV);
+        panelAstro.add(astro1rVres);
+
+        JLabel astroMisionesOK = new JLabel("Misiones Cumplidas: ");
+        JLabel astroMisionesOKRes = new JLabel(Dades.get("misionesOK"));
+        astroMisionesOK.setBounds(210,80,300,20);
+        astroMisionesOKRes.setBounds(340,80,140,20);
+        panelAstro.add(astroMisionesOK);
+        panelAstro.add(astroMisionesOKRes);
+
+        JLabel astroMisionesKO = new JLabel("Misiones Fallidas: ");
+        JLabel astroMisionesKORes = new JLabel(Dades.get("misionesKO"));
+        astroMisionesKO.setBounds(10,110,300,20);
+        astroMisionesKORes.setBounds(120,110,140,20);
+        panelAstro.add(astroMisionesKO);
+        panelAstro.add(astroMisionesKORes);
+
+        JLabel astroRango = new JLabel("Rango Militar: ");
+        JLabel astroRangoRes = new JLabel(Dades.get("rangoMilitar"));
+        astroRango.setBounds(140,110,300,20);
+        astroRangoRes.setBounds(230,110,140,20);
+        panelAstro.add(astroRango);
+        panelAstro.add(astroRangoRes);
+
+
+        JLabel ubiText = new JLabel("Enviar mi ubicacion --> ");
+        panelAstro.add(ubiText);
+        ubiText.setBounds(50,200,200,20);
+        JButton enviarUbiButton = new JButton("Enviar Ubicación");
+        panelAstro.add(enviarUbiButton);
+        enviarUbiButton.setBounds(180,200,200,20);
+
+
+        enviarUbiButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+               String randomLocat = Astronauta.RandomLocation();
+               JLabel pintarLocat = new JLabel(randomLocat);
+               panelAstro.add(pintarLocat);
+               pintarLocat.setBounds(130,230,500,20);
+            }
+        });
+
+
+
 
 
 

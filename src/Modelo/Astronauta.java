@@ -42,7 +42,7 @@ public class Astronauta extends Usuario {
         }
     }
     
-    public String RandomLocation() {
+    public static String RandomLocation() {
         
         String letra;
         
