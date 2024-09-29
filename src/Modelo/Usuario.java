@@ -56,19 +56,20 @@ public class Usuario {
 
         if (!userExists(meca)) {
             try {
-                addToTableUsuarios(meca, "MECA", contrasena);
-                PreparedStatement stmt = conn.prepareStatement("INSERT INTO mecanico"+
-                        "(mecanico_id, mecanico_salario, mecanico_id_taller, mecanico_anos_exp) "+
-                        "VALUES (?,?,?,?);");
+                if (addToTableUsuarios(meca, "MECA", contrasena)) {
+                    PreparedStatement stmt = conn.prepareStatement("INSERT INTO mecanico" +
+                            "(mecanico_id, mecanico_salario, mecanico_id_taller, mecanico_anos_exp) " +
+                            "VALUES (?,?,?,?);");
 
-                stmt.setString(1, meca.getUsuario());
-                stmt.setInt(2, meca.getSalario());
-                stmt.setInt(3, meca.getIDTaller());
-                stmt.setInt(4, meca.getAnosExp());
-                stmt.executeUpdate();
+                    stmt.setString(1, meca.getUsuario());
+                    stmt.setInt(2, meca.getSalario());
+                    stmt.setInt(3, meca.getIDTaller());
+                    stmt.setInt(4, meca.getAnosExp());
+                    stmt.executeUpdate();
 
-                ConectionDB.closeConexio(conn);
-                return true;
+                    ConectionDB.closeConexio(conn);
+                    return true;
+                }
             } catch (SQLException e) {
                 System.out.println("error " + e.getMessage());
             }
@@ -82,20 +83,21 @@ public class Usuario {
 
         if (!userExists(astr)) {
             try {
-                addToTableUsuarios(astr, "ASTR", contrasena);
-                PreparedStatement stmt = conn.prepareStatement("INSERT INTO astronauta"+
-                        "(astronauta_id, astrouauta_data_1r_vuelo, astronauta_misiones_ok, astronauta_misiones_ko, astronauta_rango_militar) "+
-                        "VALUES (?,?,?,?,?);");
+                if (addToTableUsuarios(astr, "ASTR", contrasena)) {
+                    PreparedStatement stmt = conn.prepareStatement("INSERT INTO astronauta" +
+                            "(astronauta_id, astrouauta_data_1r_vuelo, astronauta_misiones_ok, astronauta_misiones_ko, astronauta_rango_militar) " +
+                            "VALUES (?,?,?,?,?);");
 
-                stmt.setString(1, astr.getUsuario());
-                stmt.setDate(2, astr.getFechaPrimerVuelo());
-                stmt.setInt(3, astr.getMisionesOK());
-                stmt.setInt(4, astr.getMisionesKO());
-                stmt.setString(5, astr.getRangoMilitar());
-                stmt.executeUpdate();
+                    stmt.setString(1, astr.getUsuario());
+                    stmt.setDate(2, astr.getFechaPrimerVuelo());
+                    stmt.setInt(3, astr.getMisionesOK());
+                    stmt.setInt(4, astr.getMisionesKO());
+                    stmt.setString(5, astr.getRangoMilitar());
+                    stmt.executeUpdate();
 
-                ConectionDB.closeConexio(conn);
-                return true;
+                    ConectionDB.closeConexio(conn);
+                    return true;
+                }
             } catch (SQLException e) {
                 System.out.println("error " + e.getMessage());
             }
