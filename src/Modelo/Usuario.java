@@ -149,6 +149,20 @@ public class Usuario {
         ConectionDB.closeConexio(conn);
         return false;
     }
+
+    public static boolean deleteUsuario(String usuario) {
+        ConectionDB conec = new ConectionDB();
+        Connection conn = conec.getConexio();
+
+        try {
+            Statement sentencia = conn.createStatement();
+            sentencia.executeQuery("delete from usuarios where usuario_usuario = '" + usuario + "';");
+            return true;
+        } catch (SQLException e) {
+            System.out.println("error " + e.getMessage());
+        }
+        return false;
+    }
     
     public boolean passwordCorrect(String password){
         ConectionDB conec = new ConectionDB();
