@@ -46,6 +46,10 @@ public class Vista {
         panelPrincipal.add(passwordLabel);
         panelPrincipal.add(passwordInputField);
         botonEntrar.setBounds(180,164,80,30);
+        botonEntrar.setBackground(new Color(20, 216, 216, 207));
+        botonEntrar.setForeground(Color.WHITE);
+        botonEntrar.setFocusPainted(false);
+        botonEntrar.setBorderPainted(false);
         panelPrincipal.add(botonEntrar);
         
         
