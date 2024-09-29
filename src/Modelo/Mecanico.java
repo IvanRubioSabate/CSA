@@ -97,4 +97,16 @@ public class Mecanico extends Usuario {
         
         return Dades;
     }
+
+    public int getSalario() {
+        return salario;
+    }
+
+    public int getIDTaller() {
+        return IDTaller;
+    }
+
+    public int getAnosExp() {
+        return anosExp;
+    }
 }

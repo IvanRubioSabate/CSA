@@ -84,4 +84,20 @@ public class Astronauta extends Usuario {
         }
         return encriptado.toString();
     }
+
+    public Date getFechaPrimerVuelo() {
+        return fechaPrimerVuelo;
+    }
+
+    public int getMisionesOK() {
+        return misionesOK;
+    }
+
+    public int getMisionesKO() {
+        return misionesKO;
+    }
+
+    public String getRangoMilitar() {
+        return rangoMilitar;
+    }
 }
