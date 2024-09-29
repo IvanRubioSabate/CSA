@@ -44,7 +44,6 @@ public class Usuario {
     }
 
     public static boolean addUsuario(Usuario usuario, String contrasena) throws SQLException {
-
         if (!userExists(usuario)) {
             return addToTableUsuarios(usuario, "ADMIN", contrasena);
         }
