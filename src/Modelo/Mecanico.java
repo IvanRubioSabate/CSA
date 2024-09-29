@@ -109,4 +109,8 @@ public class Mecanico extends Usuario {
     public int getAnosExp() {
         return anosExp;
     }
+
+    public String getCiudadTrabajo() {
+        return CiudadTrabajo;
+    }
 }

@@ -58,13 +58,14 @@ public class Usuario {
             try {
                 if (addToTableUsuarios(meca, "MECA", contrasena)) {
                     PreparedStatement stmt = conn.prepareStatement("INSERT INTO mecanico" +
-                            "(mecanico_id, mecanico_salario, mecanico_id_taller, mecanico_anos_exp) " +
-                            "VALUES (?,?,?,?);");
+                            "(mecanico_id, mecanico_salario, mecanico_id_taller, mecanico_anos_exp, mecanico_ciduad_trabajo) " +
+                            "VALUES (?,?,?,?,?);");
 
                     stmt.setString(1, meca.getUsuario());
                     stmt.setInt(2, meca.getSalario());
                     stmt.setInt(3, meca.getIDTaller());
                     stmt.setInt(4, meca.getAnosExp());
+                    stmt.setString(5, meca.getCiudadTrabajo());
                     stmt.executeUpdate();
 
                     ConectionDB.closeConexio(conn);
