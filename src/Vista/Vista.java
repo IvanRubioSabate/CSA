@@ -23,7 +23,7 @@ public class Vista {
 
         JPanel panelPrincipal = new JPanel();
         panelPrincipal.setLayout(null);
-
+        
 
         //Visual del login (first page)
 
@@ -47,11 +47,8 @@ public class Vista {
         panelPrincipal.add(passwordInputField);
         botonEntrar.setBounds(180,164,80,30);
         panelPrincipal.add(botonEntrar);
-
-
-
-
-
+        
+        
         // Añade un ActionListener al botón de entrar
         botonEntrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -74,7 +71,7 @@ public class Vista {
     public static void generatePanels(Usuario user) {
         switch (user.getRol()) {
             case "ADMIN":
-                JPanel adminPage = CreateAdminPage();
+                JScrollPane adminPage = AdminVista.CreateAdminPage(user);
                 cards.add(adminPage, "adminPage");
                 cl.show(cards, "adminPage");
                 break;
@@ -92,51 +89,6 @@ public class Vista {
 
         frame.setContentPane(cards);
         frame.setVisible(true);
-    }
-
-
-
-    //Create the admin panel 
-    private static JPanel CreateAdminPage() {
-        JPanel panel = new JPanel();
-
-        JTextField text = new JTextField("admin page");
-
-        panel.add(text);
-
-        return panel;
-    }
-
-
-
-    public static void showAdminPage() {
-        cl.show(cards, "adminPage");
-    }
-    public static void showMecPage() {
-        cl.show(cards, "mecPage");
-    }
-
-    public static void showAstroPage() {
-        cl.show(cards, "astroPage");
-    }
-
-
-
-     public static JPanel loginP() {
-         JPanel panel = new JPanel();
-         panel.setBackground(Color.blue);
-
-         // Textos
-         JLabel titulo;
-         JLabel interprete;
-         JLabel duracion;
-         JButton añadir;
-         JButton cancelar;
-
-
-         // Crear el botón
-         JButton boton = new JButton("Cambiar Color");
-         return panel;
     }
 
 }

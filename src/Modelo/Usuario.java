@@ -1,7 +1,6 @@
 package Modelo;
 
 import java.sql.*;
-import java.util.HashSet;
 
 public class Usuario {
     protected String usuario;
@@ -129,7 +128,7 @@ public class Usuario {
 
         try {
             PreparedStatement stmt = conn.prepareStatement("INSERT INTO usuarios"+
-                    "(usuario_usuario, usuario_contrasena, usuario_rol, usuario_nombre, usuario_sexo, usuario_edad, usuario_direccion) "+
+                    "(usuario_usuario, usuario_contrasena, usuario_rol, usuario_nombre, usuario_sexo, usuario_edad, usuario_direcion) "+
                     "VALUES (?, ?, ?, ?, ?, ?, ?);");
 
             stmt.setString(1, usuario.getUsuario());
