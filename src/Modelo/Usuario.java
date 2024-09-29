@@ -156,7 +156,7 @@ public class Usuario {
 
         try {
             Statement sentencia = conn.createStatement();
-            sentencia.executeQuery("delete from usuarios where usuario_usuario = '" + usuario + "';");
+            sentencia.execute("delete from usuarios where usuario_usuario = '" + usuario + "';");
             return true;
         } catch (SQLException e) {
             System.out.println("error " + e.getMessage());
