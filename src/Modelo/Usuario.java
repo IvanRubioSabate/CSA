@@ -58,7 +58,7 @@ public class Usuario {
         boolean userAdded = addToTableUsuarios(usuario, rol, contrasena);
 
         if (userAdded) {
-            switch (rol) {
+            switch (rol.toUpperCase()) {
                 case "ADMIN":
                     return true;
                 case "MECA":
